@@ -1,17 +1,30 @@
 interface DayCircleProps {
-  day: number;
-  isPast: boolean;
+  day: number | null;
+  dayOfYear: number | null;
+  currentDayOfYear: number;
+  monthName: string;
 }
 
-export function DayCircle({ day, isPast }: DayCircleProps) {
+export function DayCircle({ day, dayOfYear, currentDayOfYear, monthName }: DayCircleProps) {
+  if (day === null || dayOfYear === null) {
+    return <span className="h-2.5 w-2.5" aria-hidden="true" />;
+  }
+
+  const isPast = dayOfYear < currentDayOfYear;
+  const isCurrent = dayOfYear === currentDayOfYear;
+
   return (
-    <div
-      className={`w-4 h-4 rounded-full border-2 transition-all duration-300 ${
-        isPast
-          ? "bg-emerald-500 border-emerald-500 dark:bg-emerald-400 dark:border-emerald-400"
-          : "border-gray-300 dark:border-gray-600"
+    <span
+      role="img"
+      aria-label={`${monthName} ${day}, day ${dayOfYear}${isCurrent ? ", today" : isPast ? ", elapsed" : ", ahead"}`}
+      title={`${monthName} ${day}`}
+      className={`day-node h-2.5 w-2.5 rounded-full transition-transform duration-300 hover:scale-150 ${
+        isCurrent
+          ? "border-2 border-primary bg-surface shadow-[0_0_0_3px_rgb(0_245_212/0.12)]"
+          : isPast
+          ? "border border-primary bg-primary shadow-[0_0_8px_rgb(115_255_227/0.25)]"
+          : "border border-outline/40 bg-surface-container-highest"
       }`}
-      title={`Day ${day}`}
     />
   );
 }
