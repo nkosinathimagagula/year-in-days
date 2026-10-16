@@ -9,7 +9,7 @@ interface HeaderProps {
 export function Header({ year, percentage, currentDay }: HeaderProps) {
   return (
     <header className="sticky top-0 z-40 bg-surface/90 backdrop-blur-xl transition-colors">
-      <div className="mx-auto max-w-[1440px] px-5 pt-4 sm:px-8 sm:pt-5 lg:px-12">
+      <div className="mx-auto max-w-360 px-5 pt-4 sm:px-8 sm:pt-5 lg:px-12">
         <div className="flex items-center justify-between gap-4">
           <div>
             <p className="text-[10px] font-semibold uppercase tracking-[0.18em] text-on-surface-variant">
@@ -37,7 +37,7 @@ export function Header({ year, percentage, currentDay }: HeaderProps) {
           aria-valuenow={percentage}
         >
           <div
-            className="h-full rounded-full bg-gradient-to-r from-primary to-primary-container transition-[width] duration-500"
+            className="h-full rounded-full bg-linear-to-r from-primary to-primary-container transition-[width] duration-500"
             style={{ width: `${percentage}%` }}
           />
         </div>

@@ -17,7 +17,7 @@ export function DaysGrid({ year, totalDays, currentDay, percentage }: DaysGridPr
       <section className="mb-14 grid gap-4 md:grid-cols-[1.3fr_0.7fr]" aria-label="Year summary">
         <div className="relative isolate overflow-hidden rounded-lg bg-surface-container-low p-6 sm:p-8">
           <div
-            className="pointer-events-none absolute inset-y-0 right-0 -z-10 w-1/2 bg-gradient-to-l from-primary/10 to-transparent"
+            className="pointer-events-none absolute inset-y-0 right-0 -z-10 w-1/2 bg-linear-to-l from-primary/10 to-transparent"
             aria-hidden="true"
           />
           <p className="text-[10px] font-semibold uppercase tracking-[0.18em] text-on-surface-variant">

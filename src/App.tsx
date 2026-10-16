@@ -10,7 +10,7 @@ function App() {
   return (
     <div className="min-h-screen bg-surface text-on-surface transition-colors">
       <Header year={year} percentage={percentage} currentDay={dayOfYear} />
-      <main className="mx-auto max-w-[1440px] px-5 py-8 sm:px-8 sm:py-10 lg:px-12">
+      <main className="mx-auto max-w-360 px-5 py-8 sm:px-8 sm:py-10 lg:px-12">
         <DaysGrid
           year={year}
           totalDays={totalDays}

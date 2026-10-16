@@ -1,4 +1,4 @@
-import type { YearProgress } from "../types";
+import type { CalendarDay, YearProgress } from "../types";
 
 export function isLeapYear(year: number): boolean {
   return (year % 4 === 0 && year % 100 !== 0) || year % 400 === 0;
@@ -53,11 +53,6 @@ export function getMonthName(monthIndex: number): string {
 
 export function getDaysInMonth(month: number, year: number): number {
   return new Date(year, month + 1, 0).getDate();
-}
-
-export interface CalendarDay {
-  day: number | null;
-  dayOfYear: number | null;
 }
 
 export function getCalendarDays(year: number): CalendarDay[][] {
